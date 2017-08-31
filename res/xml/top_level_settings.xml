@@ -50,6 +50,17 @@
         settings:highlightableMenuKey="@string/menu_key_connected_devices"
         settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
 
+    
+    <com.android.settings.widget.HomepagePreference
+        android:fragment="org.sakura.settings.SakuraSettings"
+        android:icon="@drawable/ic_settings_sakura"
+        android:key="top_level_sakura_settings"
+        android:order="-160"
+        android:title="@string/sakura_settings_dashboard_title"
+        android:summary="@string/sakura_settings_dashboard_summary"
+        settings:highlightableMenuKey="@string/menu_key_sakura_settings"
+        settings:controller="org.sakura.settings.TopLevelSakuraSettingsPreferenceController"/>
+
     <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.applications.AppDashboardFragment"
         android:icon="@drawable/ic_apps"
