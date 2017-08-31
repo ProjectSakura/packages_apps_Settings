@@ -5102,6 +5102,20 @@
                        android:value="@string/menu_key_sound"/>
         </activity>
 
+        <!-- SakuraSettings -->
+        <activity android:name=".Settings$SakuraSettingsActivity"
+            android:exported="true"
+            android:label="@string/sakura_settings_dash_title"
+            android:icon="@drawable/ic_homepage_sakura"
+            android:parentActivityName="com.android.settings">
+            <intent-filter android:priority="69">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.sakura.settings.SakuraSettings" />
+        </activity>
+
         <receiver
             android:name=".media.BluetoothPairingReceiver"
             android:exported="true"

@@ -55,6 +55,8 @@ android_library {
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
+        "SakuraSettings/src/**/*.java",
+        "SakuraSettings/src/**/*.kt",
     ],
     exclude_srcs: [
         "src/com/android/settings/biometrics/fingerprint2/lib/**/*.kt",
@@ -64,7 +66,13 @@ android_library {
         "res",
         "res-export", // for external usage
         "res-product",
+        "SakuraSettings/res"
+        "SettingsGoogle/res",
     ],
+
+
+    aaptflags: ["--extra-packages com.sakura.settings"],
+
     static_libs: [
         // External dependencies
         "androidx.navigation_navigation-fragment-ktx",
@@ -183,3 +191,9 @@ filegroup {
     name: "Settings_proguard_flags",
     srcs: ["proguard.flags"],
 }
+
+filegroup {
+    name: "Settings_manifest",
+    srcs: ["AndroidManifest.xml"],
+}
+
