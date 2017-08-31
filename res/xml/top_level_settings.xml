@@ -51,6 +51,14 @@
         settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
 
     <com.android.settings.widget.HomepagePreference
+        android:key="top_level_sakura_settings"
+        android:title="@string/sakura_settings_dash_title"
+        android:summary="@string/sakura_settings_summary"
+        android:icon="@drawable/ic_homepage_sakura"
+        android:order="-135"
+        android:fragment="com.sakura.settings.SakuraSettings"/>
+
+    <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.applications.AppDashboardFragment"
         android:icon="@drawable/ic_apps"
         android:key="top_level_apps"
