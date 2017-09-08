@@ -1,0 +1,2 @@
+# SakuraSettings
+-keep class com.sakura.settings.**
