@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,23 +18,19 @@ package com.android.settings.notification;
 
 import android.content.Context;
 import android.media.RingtoneManager;
-import android.media.audio.Flags;
-
 import android.telephony.TelephonyManager;
 
 import androidx.preference.PreferenceScreen;
 
 import com.android.settings.DefaultRingtonePreference;
-import com.android.settings.R;
-
 import com.android.settings.Utils;
 
-public class PhoneRingtonePreferenceController extends RingtonePreferenceControllerBase {
+public class PhoneRingtone2PreferenceController extends RingtonePreferenceControllerBase {
 
-    private static final int SLOT_ID = 0;
-    private static final String KEY_PHONE_RINGTONE = "phone_ringtone";
+    private static final int SLOT_ID = 1;
+    private static final String KEY_PHONE_RINGTONE2 = "ringtone2";
 
-    public PhoneRingtonePreferenceController(Context context) {
+    public PhoneRingtone2PreferenceController(Context context) {
         super(context);
     }
 
@@ -42,37 +38,26 @@ public class PhoneRingtonePreferenceController extends RingtonePreferenceControl
     public void displayPreference(PreferenceScreen screen) {
         super.displayPreference(screen);
 
-        TelephonyManager telephonyManager =
-                (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
-        if (telephonyManager.isMultiSimEnabled()) {
-            // For Multi SIM device, shoud show "Phone ringtone - SIM 1" for slot1 ringtone setting.
-            DefaultRingtonePreference ringtonePreference =
-                    (DefaultRingtonePreference) screen.findPreference(KEY_PHONE_RINGTONE);
-            ringtonePreference.setTitle(mContext.getString(R.string.ringtone1_title));
-        }
+        DefaultRingtonePreference ringtonePreference =
+                (DefaultRingtonePreference) screen.findPreference(KEY_PHONE_RINGTONE2);
+        ringtonePreference.setSlotId(SLOT_ID);
     }
 
     @Override
     public String getPreferenceKey() {
-        return KEY_PHONE_RINGTONE;
+        return KEY_PHONE_RINGTONE2;
     }
 
     @Override
     public boolean isAvailable() {
-        if (isRingtoneVibrationEnabled()) {
-            return false;
-        }
-        return Utils.isVoiceCapable(mContext);
+        TelephonyManager telephonyManager =
+                (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
+        return Utils.isVoiceCapable(mContext) && telephonyManager.isMultiSimEnabled();
     }
 
     @Override
     public int getRingtoneType() {
         return RingtoneManager.TYPE_RINGTONE;
-    }
-
-    private boolean isRingtoneVibrationEnabled() {
-        return Flags.enableRingtoneHapticsCustomization() && mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_ringtoneVibrationSettingsSupported);
     }
 
     private boolean hasCard() {
