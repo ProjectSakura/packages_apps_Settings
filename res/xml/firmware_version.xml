@@ -23,7 +23,9 @@
 
 <PreferenceScreen
     android:layout="@layout/sakura_logo"
-    android:key="sakura_logo" />
+    android:key="sakura_logo" 
+    android:selectable="false"
+    settings:enableCopying="false"/>
 
     <!-- Android version -->
     <Preference
@@ -42,6 +44,22 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVersionDetailPreferenceController"/>
 
+    <!-- Device name -->
+    <Preference
+        android:key="about_device_name"
+        android:title="@string/about_device_name"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
+
+    <!-- Sakura maintainer -->
+    <Preference
+        android:key="maintainer"
+        android:title="@string/maintainer"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SakuraMaintainerPreferenceController"/>
+
     <!-- Security patch -->
     <Preference
         android:key="security_key"
@@ -49,8 +67,7 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
 
-    <!-- Mainline module version -->
-    <!--
+    <!-- Mainline module version
     <Preference
         android:key="module_version"
         android:title="@string/module_version"
