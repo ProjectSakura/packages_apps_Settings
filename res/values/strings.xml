@@ -14952,4 +14952,6 @@
 
     <!-- sakura device -->
     <string name="about_device_name">Device</string>
+     <!-- Sakura maintainer -->
+    <string name="maintainer">Device Maintainer</string>
 </resources>
