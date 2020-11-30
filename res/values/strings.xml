@@ -14407,4 +14407,6 @@ Data usage charges may apply.</string>
     <string name="accessibility_illustration_content_description"><xliff:g id="feature" example="Select to Speak">%1$s</xliff:g> animation</string>
     <!-- sakura device -->
     <string name="about_device_name">Device</string>
+     <!-- Sakura maintainer -->
+    <string name="maintainer">Device Maintainer</string>
 </resources>
