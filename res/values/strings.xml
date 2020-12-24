@@ -14403,4 +14403,6 @@ Data usage charges may apply.</string>
     <string name="about_device_name">Device</string>
      <!-- Sakura maintainer -->
     <string name="maintainer">Device Maintainer</string>
+    <!-- Sakura version -->
+    <string name="sakura_version">Sakura Version</string>
 </resources>
