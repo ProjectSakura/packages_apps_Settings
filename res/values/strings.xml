@@ -12193,4 +12193,7 @@
 
     <!-- Sakura maintainer -->
     <string name="maintainer">Maintainer</string>
+
+    <!-- Sakura version -->
+    <string name="sakura_version">Sakura Version</string>
 </resources>
