@@ -132,6 +132,7 @@ android_library {
         "kotlin-stdlib",
         "kotlinx_coroutines_android",
         "kotlinx_coroutines",
+        "VendorSupport-preference",
     ],
 
     plugins: [
