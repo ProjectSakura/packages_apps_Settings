@@ -58,6 +58,14 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SakuraMaintainerPreferenceController"/>
 
+    <!-- buildtype -->
+    <Preference
+        android:key="buildtype"
+        android:title="@string/buildtype"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="false"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SakuraBuildtypePreferenceController"/>
+
     <!-- Security patch -->
     <Preference
         android:key="security_key"
