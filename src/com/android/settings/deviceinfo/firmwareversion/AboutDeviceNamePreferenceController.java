@@ -33,8 +33,9 @@ import com.android.settings.core.BasePreferenceController;
 public class AboutDeviceNamePreferenceController extends BasePreferenceController {
 
     private static final String TAG = "AboutDeviceNameCtrl";
-
-    private static final String KEY_DEVICE_NAME_PROP = "ro.lineage.device";
+    private static final String KEY_MARKET_NAME_PROP = "ro.product.marketname";
+    private static final String KEY_BRAND_NAME_PROP = "ro.product.manufacturer";
+    private static final String KEY_DEVICE_NAME_PROP = "ro.product.device";
 
     public AboutDeviceNamePreferenceController(Context context, String key) {
         super(context, key);
