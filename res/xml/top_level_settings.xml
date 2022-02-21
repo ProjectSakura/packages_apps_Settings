@@ -54,7 +54,7 @@
         android:key="top_level_sakura_settings"
         android:title="@string/sakura_settings_dash_title"
         android:summary="@string/sakura_settings_summary"
-        android:icon="@drawable/ic_homepage_sakura"
+        android:icon="@drawable/ic_settings_sakura_homepage"
         android:order="-135"
         android:fragment="com.sakura.settings.SakuraSettings"/>
 
