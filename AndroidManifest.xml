@@ -5105,7 +5105,6 @@
         <activity android:name=".Settings$SakuraSettingsActivity"
             android:exported="true"
             android:label="@string/sakura_settings_dash_title"
-            android:icon="@drawable/ic_homepage_sakura"
             android:parentActivityName="com.android.settings">
             <intent-filter android:priority="69">
                 <action android:name="android.intent.action.MAIN" />
