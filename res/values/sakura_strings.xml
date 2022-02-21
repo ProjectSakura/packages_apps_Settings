@@ -19,7 +19,7 @@
     <string name="maintainer">Device Maintainer</string>
 
     <!-- Sakura Settings -->
-    <string name="sakura_settings_dash_title">Sakura Config</string>
+    <string name="sakura_settings_dash_title">Personalisation</string>
     <string name="sakura_settings_summary">Feels like Spring</string>
 
     <!-- Sakura version -->

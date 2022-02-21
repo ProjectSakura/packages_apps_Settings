@@ -532,4 +532,7 @@
     <dimen name="zen_mode_circular_icon_margin_between">4dp</dimen>
     <dimen name="zen_mode_circular_icon_margin_vertical">8dp</dimen>
     <dimen name="zen_mode_circular_icon_text_size">18dp</dimen>
+
+    <!-- Dashboard foreground image size -->
+    <dimen name="dashboard_tile_foreground_image_size_pers">24dp</dimen>
 </resources>
