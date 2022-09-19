@@ -17,8 +17,14 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:key="connected_devices_screen"
     android:title="@string/connected_devices_dashboard_title">
+
+    <com.android.settings.widget.VideoPreference
+        android:key="connected_devices_video"
+        app:animation="@raw/connected_devices"
+        app:controller="com.android.settings.widget.VideoPreferenceController" />
 
     <com.android.settings.slices.SlicePreference
         android:key="bt_nearby_slice"
