@@ -23,7 +23,8 @@
 
 <PreferenceScreen
     android:layout="@layout/sakura_logo"
-    android:key="sakura_logo" />
+    android:key="sakura_logo"
+    android:selectable="false" />
 
     <!-- Android version -->
     <Preference
