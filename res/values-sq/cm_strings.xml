@@ -87,4 +87,8 @@
     <string name="connected_tws_device_saved_title">Earbuds të ruajtura</string>
     <string name="fast_charging_title">Karikim i shpejtë</string>
     <string name="fast_charging_summary">Çaktivizoni për të zvogëluar nxehtësinë e prodhuar nga pajisja gjatë karikimit ose për të zgjatur jetëgjatësinë e baterisë</string>
+    <string name="wifi_setup_wizard_title">Zgjidh rrjetin Wi\u2011Fi</string>
+    <string name="advanced_notifications_title">Cilësimet e avancuara të njoftimit</string>
+    <string name="peak_refresh_rate_summary_custom">Rrit automatikisht shpejtësinë e rifreskimit nga 60 në %1$d Hz për disa përmbajtje. Rrit përdorimin e baterisë.</string>
+    <string name="storage_warning_internal">Paralajmërim: Ky opsion mund të mos funksionojë siç duhet ose të çojë në humbje të të dhënave dhe për këtë arsye nuk rekomandohet!</string>
 </resources>
