@@ -13675,4 +13675,7 @@
 
     <!-- Sakura version -->
     <string name="sakura_version">Sakura Version</string>
+
+    <!-- sakura device -->
+    <string name="about_device_name">Device</string>
 </resources>
