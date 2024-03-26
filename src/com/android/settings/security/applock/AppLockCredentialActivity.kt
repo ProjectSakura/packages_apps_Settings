@@ -74,7 +74,9 @@ class AppLockCredentialActivity : FragmentActivity() {
 
         override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
             waitingForBiometricCallback = false
-            appLockManager.unlockPackage(packageName)
+            packageName?.let { nonNullPackageName ->
+                appLockManager.unlockPackage(nonNullPackageName)
+            }
             ConfirmDeviceCredentialUtils.checkForPendingIntent(this@AppLockCredentialActivity)
             setResult(Activity.RESULT_OK)
             finish()
@@ -99,7 +101,7 @@ class AppLockCredentialActivity : FragmentActivity() {
             statusBarColor = Color.TRANSPARENT
         }
 
-        appLockManager = getSystemService(AppLockManager::class.java)
+        appLockManager = getSystemService(AppLockManager::class.java)!!
         userManager = UserManager.get(this)
         lockPatternUtils = LockPatternUtils(this)
 
@@ -125,7 +127,7 @@ class AppLockCredentialActivity : FragmentActivity() {
         )
         var allowedAuthenticators = Authenticators.DEVICE_CREDENTIAL
         if (biometricsAllowed) {
-            allowedAuthenticators = allowedAuthenticators or Authenticators.BIOMETRIC_STRONG
+            allowedAuthenticators = allowedAuthenticators or Authenticators.BIOMETRIC_WEAK
         }
 
         val promptInfo = PromptInfo().apply {
