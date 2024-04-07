@@ -14,15 +14,16 @@
      limitations under the License.
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:gravity="center"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-<ImageView
-	android:layout_width="match_parent"
- 	android:layout_height="match_parent"
-	android:src="@drawable/ic_sakura_banner"
-	android:tint="?android:attr/colorAccent"
-	android:adjustViewBounds="true"
-	android:scaleType="centerInside" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_sakura_banner"
+        android:tint="?android:attr/colorAccent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside" />
+
 </LinearLayout>
