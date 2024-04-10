@@ -88,8 +88,6 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
                 LineageSettings.System.ENABLE_TASKBAR, isLargeScreen(getContext()) ? 1 : 0) == 1;
         if (isTaskbarEnabled) {
             getPreferenceScreen().removePreference(
-                    getPreferenceScreen().findPreference(NAVIGATION_BAR_LENGTH_KEY));
-            getPreferenceScreen().removePreference(
                     getPreferenceScreen().findPreference(NAVIGATION_BAR_HINT_KEY));
         }
     }
