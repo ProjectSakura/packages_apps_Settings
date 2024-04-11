@@ -519,4 +519,6 @@ public class Settings extends SettingsActivity {
     public static class HearingDevicesPairingActivity extends SettingsActivity { /* empty */ }
 
     public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
+
+    public static class PrivateDnsSettingsActivity extends SettingsActivity { /* empty */ }
 }
