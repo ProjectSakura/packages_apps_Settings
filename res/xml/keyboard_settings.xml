@@ -68,7 +68,6 @@
             android:summary="@string/touchscreen_hovering_summary"
             android:defaultValue="false"
             settings:requiresFeature="lineagehardware:FEATURE_TOUCH_HOVERING" />
-
     </PreferenceCategory>
 
     <SwitchPreferenceCompat
