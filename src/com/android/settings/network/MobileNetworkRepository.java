@@ -231,6 +231,7 @@ public class MobileNetworkRepository extends SubscriptionManager.OnSubscriptions
         if (sCallbacks.isEmpty()) {
             mSubscriptionManager.removeOnSubscriptionsChangedListener(this);
             mAirplaneModeObserver.unRegister(mContext);
+            mDataRoamingObserver.unRegister(mContext);
 
             mTelephonyManagerMap.forEach((id, manager) -> {
                 TelephonyCallback callback = mTelephonyCallbackMap.get(id);
@@ -605,6 +606,10 @@ public class MobileNetworkRepository extends SubscriptionManager.OnSubscriptions
     }
 
     private class PhoneCallStateTelephonyCallback extends TelephonyCallback implements
+<<<<<<< HEAD
+=======
+            TelephonyCallback.CallStateListener,
+>>>>>>> 4d7962498cf (Refacotr mobile data observer for repository)
             TelephonyCallback.UserMobileDataStateListener {
 
         private int mSubId;
@@ -618,6 +623,15 @@ public class MobileNetworkRepository extends SubscriptionManager.OnSubscriptions
             Log.d(TAG, "onUserMobileDataStateChanged enabled " + enabled + " on SUB " + mSubId);
             sExecutor.execute(() -> {
                 insertMobileNetworkInfo(mSubId, getTelephonyManagerBySubId(mContext, mSubId));
+            });
+        }
+
+        @Override
+        public void onUserMobileDataStateChanged(boolean enabled) {
+            Log.d(TAG, "onUserMobileDataStateChanged enabled " + enabled + " on SUB " + mSubId);
+            sExecutor.execute(() -> {
+                insertMobileNetworkInfo(mContext, mSubId,
+                        getTelephonyManagerBySubId(mContext, mSubId));
             });
         }
     }
