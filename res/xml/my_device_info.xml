@@ -146,20 +146,6 @@
             android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings"
             settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController"/>
 
-        <!-- Lineage version -->
-        <Preference
-            android:key="lineage_os_version"
-            android:order="43"
-            android:title="@*lineageos.platform:string/lineage_version"
-            android:summary="@string/summary_placeholder"
-            settings:enableCopying="true"
-            settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVersionDetailPreferenceController"/>
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="device_identifiers_category"
-        android:title="@string/my_device_info_device_identifiers_category_title">
-
         <!--IP address -->
         <Preference
             android:key="wifi_ip_address"
