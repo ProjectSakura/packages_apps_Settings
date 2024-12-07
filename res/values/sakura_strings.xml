@@ -35,6 +35,20 @@
     <!-- App details: open play store link if app is user installed -->
     <string name="app_play_store">Google Play</string>
 
+    <!-- Cloudflare Block Malware DNS Option -->
+    <string name="private_dns_mode_cloudflare_block_malware" translatable="false">Cloudflare Block Malware DNS</string>
+    <!-- Cloudflare Block Malware DNS hostname -->
+    <string name="private_dns_hostname_cloudflare_block_malware" translatable="false">security.cloudflare-dns.com</string>
+
+    <!-- Cloudflare Block Malware and Adult Content DNS Option -->
+    <string name="private_dns_mode_cloudflare_block_malware_and_adult_content" translatable="false">Cloudflare Block Malware and Adult Content DNS</string>
+    <!-- Cloudflare Block Malware and Adult Content DNS hostname -->
+    <string name="private_dns_hostname_cloudflare_block_malware_and_adult_content" translatable="false">family.cloudflare-dns.com</string>
+
+    <!-- Enforce DNS for VPN -->
+    <string name="vpn_enforce_dns_title">Disable for VPN</string>
+    <string name="vpn_enforce_dns_summary">Disable the private DNS when connected to a VPN\nWill restore upon disconnecting</string>
+
     <!-- Monet Engine -->
     <string name="monet_engine_title">Monet Engine</string>
     <string name="monet_engine_summary">Customise monet parameters</string>
@@ -47,6 +61,21 @@
     <string name="monet_engine_accurate_shades_title">Use accurate shades</string>
     <string name="monet_engine_accurate_shades_summary">Better contrast and depth, but duller colors</string>
     <string name="monet_engine_chroma_factor_title">Colorfulness</string>
+
+    <!-- Quad9 Unsecured DNS Option -->
+    <string name="private_dns_mode_quad9_unsecured" translatable="false">Quad9 Unsecured DNS</string>
+    <!-- Quad9 Unsecured DNS hostname -->
+    <string name="private_dns_hostname_quad9_unsecured" translatable="false">dns10.quad9.net</string>
+
+    <!-- Quad9 ECS DNS Option -->
+    <string name="private_dns_mode_quad9_ecs" translatable="false">Quad9 with ECS DNS</string>
+    <!-- Quad9 ECS DNS hostname -->
+    <string name="private_dns_hostname_quad9_ecs" translatable="false">dns11.quad9.net</string>
+
+    <!-- Quad9 Unsecured ECS DNS Option -->
+    <string name="private_dns_mode_quad9_unsecured_ecs" translatable="false">Quad9 Unsecured with ECS DNS</string>
+    <!-- Quad9 Unsecured ECS DNS hostname -->
+    <string name="private_dns_hostname_quad9_unsecured_ecs" translatable="false">dns12.quad9.net</string>
 
     <!-- Refresh rate -->
     <string name="refresh_rate_title">Screen refresh rate</string>
