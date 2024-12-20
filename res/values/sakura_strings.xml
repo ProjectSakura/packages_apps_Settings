@@ -57,4 +57,8 @@
     <string name="wifi_per_connection_random_mac_addr">Use per-connection randomized MAC (default)</string>
     <string name="wifi_per_network_random_mac_addr">Use per-network randomized MAC</string>
     <string name="wifi_device_mac_addr">Use device MAC</string>
+
+    <!-- Circle to search -->
+    <string name="search_all_entrypoints_enabled_title">Circle to Search</string>
+    <string name="search_all_entrypoints_enabled_summary">Use CTS instead of Google Lens for navbar long press</string>
 </resources>
