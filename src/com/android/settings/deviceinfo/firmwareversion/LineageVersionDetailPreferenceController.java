@@ -41,7 +41,8 @@ public class LineageVersionDetailPreferenceController extends BasePreferenceCont
     private static final int DELAY_TIMER_MILLIS = 500;
     private static final int ACTIVITY_TRIGGER_COUNT = 3;
 
-    private static final String KEY_LINEAGE_VERSION_PROP = "ro.lineage.version";
+    private static final String KEY_LINEAGE_VERSION_PROP = "ro.lineage.display.version";
+    private static final String KEY_SAKURA_VERSION_PROP = "ro.sakura.display.version";
 
     private static final String PLATLOGO_PACKAGE_NAME = "org.lineageos.lineageparts";
     private static final String PLATLOGO_ACTIVITY_CLASS =
@@ -76,8 +77,10 @@ public class LineageVersionDetailPreferenceController extends BasePreferenceCont
 
     @Override
     public CharSequence getSummary() {
-        return SystemProperties.get(KEY_LINEAGE_VERSION_PROP,
-                mContext.getString(R.string.unknown));
+        String lineageVersion = SystemProperties.get(KEY_LINEAGE_VERSION_PROP, mContext.getString(R.string.unknown));
+        String sakuraBuildVersion = SystemProperties.get(KEY_SAKURA_VERSION_PROP, mContext.getString(R.string.unknown));
+
+        return lineageVersion + " | " + sakuraBuildVersion;
     }
 
     @Override
