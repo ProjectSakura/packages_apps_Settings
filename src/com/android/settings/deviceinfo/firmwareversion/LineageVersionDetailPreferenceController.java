@@ -43,6 +43,7 @@ public class LineageVersionDetailPreferenceController extends BasePreferenceCont
 
     private static final String KEY_LINEAGE_VERSION_PROP = "ro.lineage.display.version";
     private static final String KEY_SAKURA_VERSION_PROP = "ro.sakura.display.version";
+    private static final String KEY_SAKURA_ZIPTYPE_PROP = "ro.sakura.ziptype";
 
     private static final String PLATLOGO_PACKAGE_NAME = "org.lineageos.lineageparts";
     private static final String PLATLOGO_ACTIVITY_CLASS =
@@ -79,8 +80,9 @@ public class LineageVersionDetailPreferenceController extends BasePreferenceCont
     public CharSequence getSummary() {
         String lineageVersion = SystemProperties.get(KEY_LINEAGE_VERSION_PROP, mContext.getString(R.string.unknown));
         String sakuraBuildVersion = SystemProperties.get(KEY_SAKURA_VERSION_PROP, mContext.getString(R.string.unknown));
-
-        return lineageVersion + " | " + sakuraBuildVersion;
+        String sakuraZipType = SystemProperties.get(KEY_SAKURA_ZIPTYPE_PROP, mContext.getString(R.string.unknown));
+        
+        return lineageVersion + " | " + sakuraBuildVersion + " | " + sakuraZipType;
     }
 
     @Override
