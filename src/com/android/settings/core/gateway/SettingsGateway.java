@@ -403,8 +403,8 @@ public class SettingsGateway {
             AccessibilityHearingAidsFragment.class.getName(),
             HearingDevicePairingFragment.class.getName(),
             ZenModesListFragment.class.getName(),
-            ZenModeFragment.class.getName()
-            SakuraSettings.class.getName()
+            ZenModeFragment.class.getName(),
+            SakuraSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
