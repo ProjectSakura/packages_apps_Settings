@@ -52,12 +52,10 @@ android_library {
         "SpaPrivilegedLib-defaults",
     ],
 
-    srcs: [
-        "src/**/*.java",
-        "src/**/*.kt",
-        "SakuraSettings/src/**/*.java",
-        "SakuraSettings/src/**/*.kt",
-    ],
+    srcs: ["src/**/*.java", 
+           "src/**/*.kt",
+           "SakuraSettings/src/**/*.java",],
+
     exclude_srcs: [
         "src/com/android/settings/biometrics/fingerprint2/lib/**/*.kt",
     ],
@@ -68,6 +66,7 @@ android_library {
         "res-product",
         "SakuraSettings/res",
     ],
+
     aaptflags: ["--extra-packages com.sakura.settings"],
 
     static_libs: [
@@ -194,11 +193,6 @@ android_library_import {
 filegroup {
     name: "Settings_proguard_flags",
     srcs: ["proguard.flags"],
-}
-
-filegroup {
-    name: "Settings_manifest",
-    srcs: ["AndroidManifest.xml"],
 }
 
 android_library_import {

@@ -408,7 +408,7 @@ public class SettingsGateway {
             ZenModeFragment.class.getName(),
             SakuraSettings.class.getName(),
             RunningServices.class.getName(),
-            PrivateDnsSettings.class.getName(),
+            PrivateDnsSettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
