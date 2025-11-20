@@ -51,7 +51,7 @@ import com.android.settings.supervision.SupervisionDashboardFragment;
 import com.android.settings.system.SystemDashboardFragment;
 import com.android.settingslib.drawer.CategoryKey;
 
-import com.sakura.settings.SakuraSettings;
+import org.sakura.settings.SakuraSettings;
 
 import java.util.Map;
 

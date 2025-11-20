@@ -52,4 +52,9 @@
     <string name="refresh_rate_title">Screen refresh rate</string>
     <string name="min_refresh_rate_title">Minimum refresh rate</string>
     <string name="max_refresh_rate_title">Maximum refresh rate</string>
+
+    <!-- Wi-Fi MAC address randomization -->
+    <string name="wifi_per_connection_random_mac_addr">Use per-connection randomized MAC (default)</string>
+    <string name="wifi_per_network_random_mac_addr">Use per-network randomized MAC</string>
+    <string name="wifi_device_mac_addr">Use device MAC</string>
 </resources>
