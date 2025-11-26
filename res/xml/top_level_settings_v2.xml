@@ -77,6 +77,14 @@
             settings:highlightableMenuKey="@string/menu_key_notifications"/>
 
         <com.android.settings.widget.HomepagePreference
+            android:key="top_level_sakura_settings"
+            android:title="@string/sakura_settings_dash_title"
+            android:summary="@string/sakura_settings_summary"
+            android:icon="@drawable/ic_homepage_sakura"
+            android:order="-45"
+            android:fragment="com.sakura.settings.SakuraSettings"/>
+
+        <com.android.settings.widget.HomepagePreference
             android:fragment="com.android.settings.notification.SoundSettings"
             android:icon="@drawable/ic_volume_up_filled"
             android:key="top_level_sound"
