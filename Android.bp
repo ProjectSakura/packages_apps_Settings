@@ -54,8 +54,10 @@ android_library {
 
     srcs: ["src/**/*.java", 
         "src/**/*.kt",
-        "SakuraSettings/src/**/*.java",],
-
+        "SakuraSettings/src/**/*.java",
+        "SakuraSettings/src/**/*.kt",
+    ],
+    aaptflags: ["--extra-packages com.sakura.settings"],
     exclude_srcs: [
         "src/com/android/settings/biometrics/fingerprint2/lib/**/*.kt",
     ],
@@ -66,8 +68,6 @@ android_library {
         "res-product",
         "SakuraSettings/res",
     ],
-
-    aaptflags: ["--extra-packages com.sakura.settings"],
 
     static_libs: [
         // External dependencies
@@ -131,6 +131,7 @@ android_library {
         "kotlin-stdlib",
         "kotlinx_coroutines_android",
         "kotlinx_coroutines",
+        "kotlin-stdlib",
     ],
 
     plugins: [
