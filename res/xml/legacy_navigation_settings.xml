@@ -36,13 +36,13 @@
             android:summary="@string/theme_customization_navbar_summary"
             android:fragment="com.sakura.settings.fragments.ui.NavbarStyles"/>
 
-        <com.sakura.support.preferences.SecureSettingSwitchPreference
+        <com.sakura.settings.preferences.SecureSettingSwitchPreference
             android:key="navbar_inverse_layout"
             android:title="@string/navbar_invert_layout_title"
             android:summary="@string/navbar_invert_layout_summary"
             android:defaultValue="false" />
 
-        <com.sakura.support.preferences.SecureSettingListPreference
+        <com.sakura.settings.preferences.SecureSettingListPreference
             android:key="navbar_layout_mode"
             android:title="@string/navbar_layout_title"
             android:summary="%s"
