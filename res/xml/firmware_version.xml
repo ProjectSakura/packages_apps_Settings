@@ -21,6 +21,15 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
+    <!-- Sakura Banner -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:layout="@layout/sakura_logo"
+        android:key="sakura_logo" 
+        android:selectable="false"
+        settings:allowDividerAbove="false"
+        settings:allowDividerBelow="false"
+        settings:useAdminDisabledSummary="true" />
+
     <!-- Android version -->
     <Preference
         android:key="os_firmware_version"
