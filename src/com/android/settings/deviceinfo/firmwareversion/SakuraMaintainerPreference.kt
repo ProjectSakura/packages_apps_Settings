@@ -27,7 +27,7 @@ import com.android.settingslib.metadata.PreferenceMetadata
 import com.android.settingslib.metadata.PreferenceSummaryProvider
 import com.android.settingslib.preference.PreferenceBinding
 
-class AboutDeviceNamePreference :
+class SakuraMaintainerPreference :
     PreferenceMetadata,
     PreferenceSummaryProvider,
     PreferenceAvailabilityProvider,

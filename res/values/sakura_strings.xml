@@ -17,4 +17,7 @@
 <!-- Hardware info -->
     <string name="platform_revision">Platform</string>
     <string name="total_ram">Total RAM</string>
+    <string name="about_device_name">Device</string>
+    <string name="sakura_version">Sakura Version</string>
+    <string name="maintainer">Device Maintainer</string>
 </resources>

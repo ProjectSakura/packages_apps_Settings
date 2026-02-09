@@ -41,10 +41,10 @@ class LineageVersionDetailPreference :
     private val hits = LongArray(ACTIVITY_TRIGGER_COUNT)
 
     override val key: String
-        get() = "lineage_version"
+        get() = "sakura_version"
 
     override val title: Int
-        get() = org.lineageos.platform.internal.R.string.lineage_version
+        get() = R.string.sakura_version
 
     override val indexable
         get() = false
@@ -67,6 +67,7 @@ class LineageVersionDetailPreference :
         val sakuraVariant = SystemProperties.get(SAKURA_VERSION_PROPERTY, context.getString(R.string.unknown))
         val sakuraZipFileType = SystemProperties.get(SAKURA_ZIPTYPE_PROPERTY, context.getString(R.string.unknown))
         return "$lineageVer | $sakuraVariant | $sakuraZipFileType"
+    }
 
     // return true swallows the click event, while return false will start the intent
     override fun onPreferenceClick(preference: Preference): Boolean {
