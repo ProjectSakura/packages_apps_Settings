@@ -1,0 +1,2 @@
+# crDroidSettings
+-keep class com.sakura.settings.**
