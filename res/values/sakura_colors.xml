@@ -13,17 +13,10 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources
+    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
 
-     <string name="sakura_version">Sakura Version</string>
-     <string name="about_device_name">Device</string>
-     <string name="maintainer">Device Maintainer</string>
-     
-     <!-- Hardware info -->
-     <string name="platform_revision">Platform</string>
-     <string name="total_ram">Total RAM</string>
-     
-     <!-- Sakura Settings -->
-     <string name="sakura_settings_dash_title">Sakura Config</string>
-     <string name="sakura_settings_summary">Feels like Spring</string>
+    <color name="homepage_sakura_background">@color/homepage_purple_variant_bg</color>
+    <color name="homepage_sakura_foreground">@color/homepage_pink_fg</color>
+
 </resources>
