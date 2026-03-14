@@ -26,7 +26,9 @@
         android:layout="@layout/sakura_logo"
         android:key="sakura_logo" 
         android:selectable="false"
-        settings:enableCopying="false"/>
+        settings:allowDividerAbove="false"
+        settings:allowDividerBelow="false"
+        settings:useAdminDisabledSummary="true" />
 
     <!-- Device name -->
     <Preference
