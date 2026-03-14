@@ -23,6 +23,15 @@
     <com.android.settingslib.widget.UntitledPreferenceCategory
         android:order="-130"
         android:key="top_level_connectivity_category">
+
+        <com.android.settings.widget.HomepagePreference
+            android:fragment="com.sakura.settings.SakuraSettings"
+            android:icon="@drawable/ic_homepage_sakura"
+            android:key="top_level_sakura_settings"
+            android:order="-30"
+            android:title="@string/sakura_settings_dash_title"
+            android:summary="@string/sakura_settings_summary"/>
+
         <com.android.settings.widget.HomepagePreference
             android:fragment="com.android.settings.network.NetworkDashboardFragment"
             android:icon="@drawable/ic_homepage_network"
