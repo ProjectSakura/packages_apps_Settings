@@ -26,4 +26,8 @@
      <!-- Sakura Settings -->
      <string name="sakura_settings_dash_title">Sakura Config</string>
      <string name="sakura_settings_summary">Feels like Spring</string>
+
+     <!-- Auto-hide Navbar Pill -->
+     <string name="gesture_navbar_auto_hide_title">Auto-hide navigation hint</string>
+     <string name="gesture_navbar_auto_hide_summary">Automatically hide the navigation hint after a short period of inactivity</string>
 </resources>
