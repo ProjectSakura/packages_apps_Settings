@@ -30,4 +30,7 @@
      <!-- Auto-hide Navbar Pill -->
      <string name="gesture_navbar_auto_hide_title">Auto-hide navigation hint</string>
      <string name="gesture_navbar_auto_hide_summary">Automatically hide the navigation hint after a short period of inactivity</string>
+         <!-- Per-app GPU composition -->
+     <string name="use_gpu_for_screen_composition_title">Use GPU for screen composition</string>
+         <string name="use_gpu_for_screen_composition_summary">Select apps that should disable HW overlays while in use</string>
 </resources>
