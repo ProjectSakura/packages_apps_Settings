@@ -16,8 +16,9 @@
 
 package com.android.settings.security.applock
 
-import android.app.AppLockManager
+import android.app.AxSandboxManager
 import android.content.Context
+import android.provider.Settings
 
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -30,18 +31,23 @@ class AppLockTimeoutPreferenceController(
 ) : BasePreferenceController(context, key),
     Preference.OnPreferenceChangeListener {
 
-    private val appLockManager = context.getSystemService(AppLockManager::class.java)!!
-
     override fun getAvailabilityStatus() = AVAILABLE
 
     override fun updateState(preference: Preference) {
-        (preference as ListPreference).value = appLockManager.timeout.takeIf {
-            it != -1L
-        }?.toString()
+        val timeout = Settings.Secure.getLong(
+            mContext.contentResolver,
+            AxSandboxManager.SETTING_LOCK_TIMEOUT,
+            AxSandboxManager.DEFAULT_LOCK_TIMEOUT.toLong()
+        )
+        (preference as ListPreference).value = timeout.takeIf { it != -1L }?.toString()
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any): Boolean {
-        appLockManager.timeout = (newValue as String).toLong()
+        Settings.Secure.putLong(
+            mContext.contentResolver,
+            AxSandboxManager.SETTING_LOCK_TIMEOUT,
+            (newValue as String).toLong()
+        )
         return true
     }
 }

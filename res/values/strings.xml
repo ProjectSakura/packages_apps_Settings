@@ -14957,4 +14957,5 @@
     <string name="safety_center_system_component_update_search_terms"></string>
      <!-- Sakura maintainer -->
     <string name="maintainer">Device Maintainer</string>
+    <string name="unlock_application">Unlock %1$s</string>
 </resources>

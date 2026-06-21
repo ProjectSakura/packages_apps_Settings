@@ -16,7 +16,7 @@
 
 package com.android.settings.security.applock
 
-import android.app.AppLockManager
+import android.app.AxSandboxManager
 import android.content.Context
 
 import androidx.lifecycle.lifecycleScope
@@ -36,16 +36,14 @@ class AppLockPackageProtectionPC(
     private val coroutineScope: CoroutineScope
 ) : AppLockTogglePreferenceController(context, KEY) {
 
-    private val appLockManager = context.getSystemService(AppLockManager::class.java)!!
+    private val appLockManager = context.getSystemService(AxSandboxManager::class.java)!!
     private var isProtected = false
     private var preference: Preference? = null
 
     init {
         coroutineScope.launch {
             isProtected = withContext(Dispatchers.Default) {
-                appLockManager.packageData.find {
-                    it.packageName == packageName
-                }?.shouldProtectApp == true
+                appLockManager.lockedPackages.contains(packageName)
             }
             preference?.let {
                 updateState(it)
@@ -61,7 +59,11 @@ class AppLockPackageProtectionPC(
         if (isProtected == checked) return false
         isProtected = checked
         coroutineScope.launch(Dispatchers.Default) {
-            appLockManager.setShouldProtectApp(packageName, isProtected)
+            if (isProtected) {
+                appLockManager.addLockedApp(packageName)
+            } else {
+                appLockManager.removeLockedApp(packageName)
+            }
         }
         return true
     }

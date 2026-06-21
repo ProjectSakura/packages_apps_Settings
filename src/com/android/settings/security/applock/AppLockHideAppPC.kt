@@ -16,7 +16,7 @@
 
 package com.android.settings.security.applock
 
-import android.app.AppLockManager
+import android.app.AxSandboxManager
 import android.content.Context
 
 import androidx.preference.Preference
@@ -35,8 +35,9 @@ class AppLockHideAppPC(
     private val coroutineScope: CoroutineScope
 ) : AppLockTogglePreferenceController(context, KEY) {
 
-    private val appLockManager = context.getSystemService(AppLockManager::class.java)!!
-    private var hideFromLauncher = AppLockManager.DEFAULT_HIDE_IN_LAUNCHER
+    private val appLockManager = context.getSystemService(AxSandboxManager::class.java)!!
+    // TODO: AxSandboxManager has no DEFAULT_HIDE_IN_LAUNCHER constant; default to false.
+    private var hideFromLauncher = false
     private var preference: Preference? = null
 
     init {

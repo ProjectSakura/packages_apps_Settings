@@ -16,10 +16,8 @@
 
 package com.android.settings.security.applock
 
-import android.app.AppLockManager
+import android.app.AxSandboxManager
 import android.content.Context
-import android.hardware.biometrics.BiometricManager
-import android.hardware.biometrics.BiometricManager.Authenticators.BIOMETRIC_STRONG
 
 import androidx.preference.Preference
 import androidx.preference.PreferenceScreen
@@ -36,37 +34,19 @@ class AppLockBiometricPreferenceController(
     private val coroutineScope: CoroutineScope
 ) : AppLockTogglePreferenceController(context, KEY) {
 
-    private val appLockManager = context.getSystemService(AppLockManager::class.java)!!
-    private val biometricManager = context.getSystemService(BiometricManager::class.java)!!
-
+    // TODO: AxSandboxManager does not yet expose a global biometrics-allowed
+    // setting (no isBiometricsAllowed/setBiometricsAllowed equivalent).
+    // Disabled until framework support lands.
     private var preference: Preference? = null
     private var isBiometricsAllowed = false
 
-    init {
-        coroutineScope.launch {
-            isBiometricsAllowed = withContext(Dispatchers.Default) {
-                appLockManager.isBiometricsAllowed()
-            }
-            preference?.let {
-                updateState(it)
-            }
-        }
-    }
-
-    override fun getAvailabilityStatus(): Int {
-        val result = biometricManager.canAuthenticate(BIOMETRIC_STRONG)
-        return if (result == BiometricManager.BIOMETRIC_SUCCESS) AVAILABLE else CONDITIONALLY_UNAVAILABLE
-    }
+    override fun getAvailabilityStatus(): Int = UNSUPPORTED_ON_DEVICE
 
     override fun isChecked() = isBiometricsAllowed
 
     override fun setChecked(checked: Boolean): Boolean {
-        if (isBiometricsAllowed == checked) return false
-        isBiometricsAllowed = checked
-        coroutineScope.launch(Dispatchers.Default) {
-            appLockManager.setBiometricsAllowed(isBiometricsAllowed)
-        }
-        return true
+        // No backing API yet; toggle is unavailable (see getAvailabilityStatus).
+        return false
     }
 
     override fun displayPreference(screen: PreferenceScreen) {

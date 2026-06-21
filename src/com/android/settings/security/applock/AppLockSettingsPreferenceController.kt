@@ -17,7 +17,7 @@
 package com.android.settings.security.applock
 
 import android.app.Activity
-import android.app.AppLockManager
+import android.app.AxSandboxManager
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
@@ -54,7 +54,7 @@ class AppLockSettingsPreferenceController(
     LifecycleEventObserver {
 
     private val lockPatternUtils = LockPatternUtils(context)
-    private val appLockManager = context.getSystemService(AppLockManager::class.java)!!
+    private val appLockManager = context.getSystemService(AxSandboxManager::class.java)!!
     private var preference: Preference? = null
     private val securityPromptLauncher: ActivityResultLauncher<Intent>?
 
@@ -98,9 +98,7 @@ class AppLockSettingsPreferenceController(
         preference.apply {
             if (getAvailabilityStatus() == AVAILABLE) {
                 setEnabled(true)
-                summary = getSummaryForListSize(appLockManager.packageData.filter {
-                    it.shouldProtectApp == true
-                }.size)
+                summary = getSummaryForListSize(appLockManager.lockedPackages.size)
             } else {
                 setEnabled(false)
                 summary = mContext.getString(R.string.disabled_because_no_backup_security)

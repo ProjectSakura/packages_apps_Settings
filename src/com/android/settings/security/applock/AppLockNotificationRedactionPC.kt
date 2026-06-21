@@ -16,7 +16,7 @@
 
 package com.android.settings.security.applock
 
-import android.app.AppLockManager
+import android.app.AxSandboxManager
 import android.content.Context
 
 import androidx.preference.Preference
@@ -35,34 +35,21 @@ class AppLockNotificationRedactionPC(
     private val coroutineScope: CoroutineScope
 ) : AppLockTogglePreferenceController(context, KEY) {
 
-    private val appLockManager = context.getSystemService(AppLockManager::class.java)!!
-    private var shouldRedactNotification = AppLockManager.DEFAULT_REDACT_NOTIFICATION
+    // TODO: AxSandboxManager does not yet expose per-package notification
+    // redaction (no packageData/setShouldRedactNotification equivalent).
+    // Disabled until framework support lands.
+    private var shouldRedactNotification = false
     private var preference: Preference? = null
 
-    init {
-        coroutineScope.launch {
-            shouldRedactNotification = withContext(Dispatchers.Default) {
-                appLockManager.packageData.find {
-                    it.packageName == packageName
-                }?.shouldRedactNotification == true
-            }
-            preference?.let {
-                updateState(it)
-            }
-        }
-    }
-
-    override fun getAvailabilityStatus() = AVAILABLE
+    override fun getAvailabilityStatus() = UNSUPPORTED_ON_DEVICE
 
     override fun isChecked() = shouldRedactNotification
 
     override fun setChecked(checked: Boolean): Boolean {
         if (shouldRedactNotification == checked) return false
         shouldRedactNotification = checked
-        coroutineScope.launch(Dispatchers.Default) {
-            appLockManager.setShouldRedactNotification(packageName, checked)
-        }
-        return true
+        // No backing API yet; toggle is unavailable (see getAvailabilityStatus).
+        return false
     }
 
     override fun displayPreference(screen: PreferenceScreen) {

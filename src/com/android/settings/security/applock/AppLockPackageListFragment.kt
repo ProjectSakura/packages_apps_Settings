@@ -16,7 +16,7 @@
 
 package com.android.settings.security.applock
 
-import android.app.AppLockManager
+import android.app.AxSandboxManager
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
@@ -45,18 +45,21 @@ internal const val PACKAGE_INFO = "package_info"
 
 class AppLockPackageListFragment : DashboardFragment() {
 
-    private lateinit var appLockManager: AppLockManager
+    private lateinit var appLockManager: AxSandboxManager
     private lateinit var pm: PackageManager
     private lateinit var whiteListedPackages: Array<String>
     private lateinit var launchablePackages: List<String>
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        appLockManager = context.getSystemService(AppLockManager::class.java)!!
+        appLockManager = context.getSystemService(AxSandboxManager::class.java)!!
         pm = context.packageManager
-        launchablePackages = Utils.launchablePackages(context)
+        launchablePackages = context.packageManager.queryIntentActivities(
+            android.content.Intent(android.content.Intent.ACTION_MAIN).apply {
+                addCategory(android.content.Intent.CATEGORY_LAUNCHER)
+            }, 0).map { it.activityInfo.packageName }.distinct()
         whiteListedPackages = resources.getStringArray(
-            com.android.internal.R.array.config_appLockAllowedSystemApps)
+            com.android.settings.R.array.config_appLockAllowedSystemApps)
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -101,11 +104,7 @@ class AppLockPackageListFragment : DashboardFragment() {
 
     private suspend fun getSelectedPackages(): Set<String> {
         return withContext(Dispatchers.IO) {
-            appLockManager.packageData.filter {
-                it.shouldProtectApp == true
-            }.map {
-                it.packageName
-            }.toSet()
+            appLockManager.lockedPackages.toSet()
         }
     }
 
@@ -122,7 +121,11 @@ class AppLockPackageListFragment : DashboardFragment() {
             isChecked = isProtected
             setOnPreferenceChangeListener { _, newValue ->
                 lifecycleScope.launch(Dispatchers.IO) {
-                    appLockManager.setShouldProtectApp(packageInfo.packageName, newValue as Boolean)
+                    if (newValue as Boolean) {
+                        appLockManager.addLockedApp(packageInfo.packageName)
+                    } else {
+                        appLockManager.removeLockedApp(packageInfo.packageName)
+                    }
                 }
                 return@setOnPreferenceChangeListener true
             }

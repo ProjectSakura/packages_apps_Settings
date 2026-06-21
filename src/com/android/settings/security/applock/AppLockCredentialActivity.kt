@@ -18,9 +18,10 @@
 package com.android.settings.security.applock
 
 import android.app.Activity
-import android.app.AppLockManager
+import android.app.AxSandboxManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.hardware.biometrics.BiometricConstants
 import android.hardware.biometrics.BiometricManager.Authenticators
@@ -49,7 +50,7 @@ class AppLockCredentialActivity : FragmentActivity() {
 
     private lateinit var lockPatternUtils: LockPatternUtils
     private lateinit var userManager: UserManager
-    private lateinit var appLockManager: AppLockManager
+    private lateinit var appLockManager: AxSandboxManager
 
     private var packageName: String? = null
     private var label: String? = null
@@ -75,7 +76,7 @@ class AppLockCredentialActivity : FragmentActivity() {
         override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
             waitingForBiometricCallback = false
             packageName?.let { nonNullPackageName ->
-                appLockManager.unlockPackage(nonNullPackageName)
+                appLockManager.unlockApp(nonNullPackageName, userId)
             }
             ConfirmDeviceCredentialUtils.checkForPendingIntent(this@AppLockCredentialActivity)
             setResult(Activity.RESULT_OK)
@@ -101,7 +102,7 @@ class AppLockCredentialActivity : FragmentActivity() {
             statusBarColor = Color.TRANSPARENT
         }
 
-        appLockManager = getSystemService(AppLockManager::class.java)!!
+        appLockManager = getSystemService(AxSandboxManager::class.java)!!
         userManager = UserManager.get(this)
         lockPatternUtils = LockPatternUtils(this)
 
@@ -112,7 +113,12 @@ class AppLockCredentialActivity : FragmentActivity() {
             return
         }
 
-        label = intent.getStringExtra(AppLockManager.EXTRA_PACKAGE_LABEL)
+        label = try {
+            val appInfo = packageManager.getApplicationInfo(packageName!!, 0)
+            packageManager.getApplicationLabel(appInfo).toString()
+        } catch (e: PackageManager.NameNotFoundException) {
+            packageName
+        }
 
         userId = intent.getIntExtra(Intent.EXTRA_USER_ID, USER_NULL)
         if (userId == USER_NULL) {
@@ -121,17 +127,16 @@ class AppLockCredentialActivity : FragmentActivity() {
             return
         }
 
-        val biometricsAllowed = intent.getBooleanExtra(
-            AppLockManager.EXTRA_ALLOW_BIOMETRICS,
-            AppLockManager.DEFAULT_BIOMETRICS_ALLOWED
-        )
+        // TODO: AxSandboxManager does not yet expose a per-package biometrics
+        // policy. Defaulting to true until framework support lands.
+        val biometricsAllowed = true
         var allowedAuthenticators = Authenticators.DEVICE_CREDENTIAL
         if (biometricsAllowed) {
             allowedAuthenticators = allowedAuthenticators or Authenticators.BIOMETRIC_WEAK
         }
 
         val promptInfo = PromptInfo().apply {
-            title = getString(com.android.internal.R.string.unlock_application, label)
+            title = getString(com.android.settings.R.string.unlock_application, label)
             isDisallowBiometricsIfPolicyExists = true
             authenticators = allowedAuthenticators
             isAllowBackgroundAuthentication = true
