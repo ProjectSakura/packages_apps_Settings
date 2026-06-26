@@ -1697,7 +1697,4 @@
         <item>Quick settings</item>
         <item>Lockscreen</item>
     </string-array>
-    <string-array name="config_appLockAllowedSystemApps" translatable="false">
-        <item>com.android.settings</item>
-    </string-array>
 </resources>

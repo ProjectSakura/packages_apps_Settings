@@ -47,19 +47,11 @@ class AppLockPackageListFragment : DashboardFragment() {
 
     private lateinit var appLockManager: AxSandboxManager
     private lateinit var pm: PackageManager
-    private lateinit var whiteListedPackages: Array<String>
-    private lateinit var launchablePackages: List<String>
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         appLockManager = context.getSystemService(AxSandboxManager::class.java)!!
         pm = context.packageManager
-        launchablePackages = context.packageManager.queryIntentActivities(
-            android.content.Intent(android.content.Intent.ACTION_MAIN).apply {
-                addCategory(android.content.Intent.CATEGORY_LAUNCHER)
-            }, 0).map { it.activityInfo.packageName }.distinct()
-        whiteListedPackages = resources.getStringArray(
-            com.android.settings.R.array.config_appLockAllowedSystemApps)
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -67,12 +59,12 @@ class AppLockPackageListFragment : DashboardFragment() {
         lifecycleScope.launch {
             val selectedPackages = getSelectedPackages()
             val preferences = withContext(Dispatchers.Default) {
-                pm.getInstalledPackages(
-                    PackageInfoFlags.of(PackageManager.MATCH_ALL.toLong())
-                ).filter { packageInfo ->
-                    val isSystemApp = packageInfo.applicationInfo?.isSystemApp ?: false
-                    !isSystemApp || launchablePackages.contains(packageInfo.packageName) ||
-                        whiteListedPackages.contains(packageInfo.packageName)
+                appLockManager.getLockablePackages().mapNotNull { packageName ->
+                    try {
+                        pm.getPackageInfo(packageName, PackageInfoFlags.of(PackageManager.MATCH_ALL.toLong()))
+                    } catch (e: PackageManager.NameNotFoundException) {
+                        null
+                    }
                 }.sortedWith { first, second ->
                     getLabel(first).compareTo(getLabel(second))
                 }
