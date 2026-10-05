@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 Project Sakura
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="sakura_version">Версия Sakura</string>
+    <string name="about_device_name">Устройство</string>
+    <string name="maintainer">Ответственный за устройство</string>
+
+    <!-- Hardware info -->
+    <string name="platform_revision">Платформа</string>
+    <string name="total_ram">Общий объём ОЗУ</string>
+
+    <!-- Sakura Settings -->
+    <string name="sakura_settings_dash_title">Настройки Sakura</string>
+    <string name="sakura_settings_summary">Почувствуйте весну</string>
+
+    <!-- Auto-hide Navbar Pill -->
+    <string name="gesture_navbar_auto_hide_title">Автоматически скрывать подсказку навигации</string>
+    <string name="gesture_navbar_auto_hide_summary">Автоматически скрывать подсказку навигации после короткого периода бездействия</string>
+
+    <!-- Per-app GPU composition -->
+    <string name="use_gpu_for_screen_composition_title">Использовать GPU для композиции экрана</string>
+    <string name="use_gpu_for_screen_composition_summary">Выберите приложения, в которых следует отключать аппаратные оверлеи</string>
+
+    <!-- Sleep Mode -->
+    <string name="sleep_mode_title">Режим сна</string>
+    <string name="sleep_mode_summary_on">Включён / <xliff:g name="auto_mode_summary" example="Never turn off automatically">%1$s</xliff:g></string>
+    <string name="sleep_mode_summary_off">Выключен / <xliff:g name="auto_mode_summary" example="Never turn on automatically">%1$s</xliff:g></string>
+    <string name="sleep_mode_ringer_title">Режим звонка</string>
+    <string name="sleep_mode_ringer_off_title">Не изменять</string>
+    <string name="sleep_mode_ringer_vibrate_title">Вибрация</string>
+    <string name="sleep_mode_ringer_dnd_title">Не беспокоить</string>
+    <string name="sleep_mode_ringer_silent_title">Без звука</string>
+    <string name="sleep_mode_schedule_sunset">Закат</string>
+    <string name="sleep_mode_schedule_sunrise">Рассвет</string>
+    <string name="sleep_mode_schedule_mixed_sunset">Включать от заката до указанного времени</string>
+    <string name="sleep_mode_schedule_mixed_sunrise">Включать от указанного времени до рассвета</string>
+    <string name="sleep_mode_toggles_title">Переключатели</string>
+    <string name="sleep_mode_wifi_toggle_title">Отключать Wi-Fi</string>
+    <string name="sleep_mode_wifi_toggle_summary">Отключать Wi-Fi при включении режима сна</string>
+    <string name="sleep_mode_bluetooth_toggle_title">Отключать Bluetooth</string>
+    <string name="sleep_mode_bluetooth_toggle_summary">Отключать Bluetooth при включении режима сна</string>
+    <string name="sleep_mode_cellular_toggle_title">Отключать мобильный интернет</string>
+    <string name="sleep_mode_cellular_toggle_summary">Отключать мобильный интернет при включении режима сна</string>
+    <string name="sleep_mode_location_toggle_title">Отключать геолокацию</string>
+    <string name="sleep_mode_location_toggle_summary">Отключать геолокацию при включении режима сна</string>
+    <string name="sleep_mode_sensors_toggle_title">Отключать датчики</string>
+    <string name="sleep_mode_sensors_toggle_summary">Отключать датчики при включении режима сна</string>
+    <string name="sleep_mode_display_text">Режим сна позволяет отключать определённые службы, чтобы экономить заряд батареи и не беспокоить вас во время сна.</string>
+
+    <!-- Display settings screen, activation button action for manual mode. [CHAR LIMIT=40] -->
+    <string name="night_display_activation_on_manual">Включить сейчас</string>
+    <!-- Display settings screen, deactivation button action for manual mode. [CHAR LIMIT=40] -->
+    <string name="night_display_activation_off_manual">Выключить сейчас</string>
+    <!-- Display settings screen, activation button action for sunset-to-sunrise schedule [CHAR LIMIT=40] -->
+    <string name="night_display_activation_on_twilight">Включить до рассвета</string>
+    <!-- Display settings screen, deactivation button action for sunset-to-sunrise schedule [CHAR LIMIT=40] -->
+    <string name="night_display_activation_off_twilight">Выключить до заката</string>
+    <!-- Display settings screen, activation button action for custom schedule [CHAR LIMIT=40] -->
+    <string name="night_display_activation_on_custom">Включить до <xliff:g name="time" example="6 AM">%1$s</xliff:g></string>
+    <!-- Display settings screen, deactivation button action for custom schedule [CHAR LIMIT=40] -->
+    <string name="night_display_activation_off_custom">Выключить до <xliff:g name="time" example="10 PM">%1$s</xliff:g></string>
+</resources>
